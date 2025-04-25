@@ -30,7 +30,7 @@ final class QuestionsViewController: UIViewController {
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
-
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +38,15 @@ final class QuestionsViewController: UIViewController {
         let answerCount = Float(currentAnswers.count - 1)
         rangedSlider.maximumValue = answerCount
         rangedSlider.value = answerCount / 2
-       
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showResult" {
-               if let resultVC = segue.destination as? ResultViewController {
-                   resultVC.answers = answersChosen
-               }
-           }
+            if let resultVC = segue.destination as? ResultViewController {
+                resultVC.answers = answersChosen
+            }
+        }
     }
     
     // MARK: - IB Actions

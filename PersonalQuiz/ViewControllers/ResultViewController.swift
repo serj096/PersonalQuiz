@@ -29,20 +29,21 @@ final class ResultViewController: UIViewController {
     }
     
     private func displayMostFrequentAnimal() {
-           // Создаем словарь для подсчета количества каждого животного
-           var animalCounts: [Animal: Int] = [:]
-           for answer in answers {
-               animalCounts[answer.animal, default: 0] += 1
-           }
-
-           
-           if let (mostFrequentAnimal, count) = animalCounts.max(by: { $0.value < $1.value }) {
-               resultIconLabel.text = "Вы -  \(mostFrequentAnimal.rawValue)"
-               print("Самое частое животное: \(mostFrequentAnimal.rawValue) — \(count) раз(а)")
-               resultTextResult.text = mostFrequentAnimal.definition
-               print("Описание: \(mostFrequentAnimal.definition)")
-           } else {
-               print("Нет данных для анализа.")
-           }
-       }
+        // Создаем словарь для подсчета количества каждого животного
+        var animalCounts: [Animal: Int] = [:]
+        for answer in answers {
+            animalCounts[answer.animal, default: 0] += 1
+        }
+        
+        
+        if let (mostFrequentAnimal, count) = animalCounts.max(by: { $0.value < $1.value }) {
+            resultIconLabel.text = "Вы -  \(mostFrequentAnimal.rawValue)"
+            print("Самое частое животное: \(mostFrequentAnimal.rawValue) — \(count) раз(а)")
+            
+            resultTextResult.text = mostFrequentAnimal.definition
+            print("Описание: \(mostFrequentAnimal.definition)")
+        } else {
+            print("Нет данных для анализа.")
+        }
+    }
 }
